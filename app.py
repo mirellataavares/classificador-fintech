@@ -2,11 +2,10 @@ import streamlit as st
 import spacy
 
 
-# Carrega modelo português do spaCy
+
 nlp = spacy.load("pt_core_news_sm")
 
 
-# Configuração da página
 st.set_page_config(
     page_title="Classificador Banco Digital"
 )
@@ -37,11 +36,7 @@ if st.button("Classificar"):
 
     else:
 
-        # Processamento com spaCy
         doc = nlp(texto.lower())
-
-
-        # Palavras-chave por categoria
 
         bloqueio_cartao = [
             "bloquear",
@@ -85,7 +80,6 @@ if st.button("Classificar"):
         ]
 
 
-        # Junta os tokens processados
 
         palavras = [
             token.text 
@@ -96,8 +90,7 @@ if st.button("Classificar"):
         categoria = "Não identificado"
 
 
-        # Classificação
-
+       
         for palavra in palavras:
 
 
